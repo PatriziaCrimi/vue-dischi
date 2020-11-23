@@ -27,9 +27,12 @@ let app = new Vue({
       // Accessing the JSON object and its properties "data" & "response" containing the array (of objects) of music discs and filling in the discs_list array
       this.discs_list = ajax_call.data.response;
       console.log(this.discs_list);
-      // Scrolling the array of discs to find how many genres are listed
+      // Scrolling the array of discs to find out how many genres are listed
       this.discs_list.forEach((disc, i) => {
-        this.genre_list.push(disc.genre);
+        // If the genre found is not included in the array of genres, it must be added
+        if(!(this.genre_list.includes(disc.genre))) {
+          this.genre_list.push(disc.genre);
+        }
       });
       console.log(this.genre_list);
     });
