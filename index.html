@@ -20,15 +20,15 @@
             <h1>{{title}}</h1>
           </div>
           <div class="row">
-            <p>Select the music genre</p>
-            <select class="select-genre" name="">
-              <option value="all" selected>All</option>
+            <p>Select the music genre:</p>
+            <select class="select-genre" v-model="selected_genre">
+              <option value="all">All</option>
               <option v-for="(genre, index) in genre_list" :value="genre">{{genre}}</option>
             </select>
           </div>
           <div class="row">
             <div id="cards-container" v-if="discs_list.length === discs_quantity">
-              <div class="music-disc" v-for="(disc, index) in discs_list">
+              <div class="music-disc" v-for="(disc, index) in discs_list" v-if="disc.genre === selected_genre || selected_genre === 'all'">
                 <img class="disc-poster" :src="disc.poster" :alt="disc.title">
                 <h3>{{disc.title}}</h3>
                 <h4>{{disc.author}}</h4>

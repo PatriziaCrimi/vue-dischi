@@ -18,6 +18,7 @@ let app = new Vue({
     discs_list: [],
     discs_quantity: 10,
     genre_list : [],
+    selected_genre : 'all',
   },  // Closing data
   mounted: function() {
     // AJAX call
@@ -26,7 +27,7 @@ let app = new Vue({
     .then(ajax_call => {
       // Accessing the JSON object and its properties "data" & "response" containing the array (of objects) of music discs and filling in the discs_list array
       this.discs_list = ajax_call.data.response;
-      console.log(this.discs_list);
+      console.log('The discs list is: ' , this.discs_list);
       // Scrolling the array of discs to find out how many genres are listed
       this.discs_list.forEach((disc, i) => {
         // If the genre found is not included in the array of genres, it must be added
@@ -34,7 +35,7 @@ let app = new Vue({
           this.genre_list.push(disc.genre);
         }
       });
-      console.log(this.genre_list);
+      console.log('All the genres listed are: ' , this.genre_list);
     });
   },  // Closing mounted
 });
