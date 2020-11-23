@@ -38,4 +38,12 @@ let app = new Vue({
       console.log('All the genres listed are: ' , this.genre_list);
     });
   },  // Closing mounted
+  methods: {
+    sortPerYear() {
+      this.discs_list.sort((a, b) => {
+        return a.year - b.year;
+      });
+      console.log(this.discs_list);
+    },
+  },  // Closing methods
 });

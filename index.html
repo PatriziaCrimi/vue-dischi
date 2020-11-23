@@ -19,15 +19,21 @@
           <div class="row">
             <h1>{{title}}</h1>
           </div>
-          <div class="row">
-            <p>Select the music genre:</p>
-            <select class="select-genre" v-model="selected_genre">
-              <option value="all">All</option>
-              <option v-for="(genre, index) in genre_list" :value="genre">{{genre}}</option>
-            </select>
+          <div class="row row-lg">
+            <div class="col-12 col-lg-6">
+              <p>Select the music genre:</p>
+              <select class="select-genre" v-model="selected_genre">
+                <option value="all">All</option>
+                <option v-for="(genre, index) in genre_list" :value="genre">{{genre}}</option>
+              </select>
+            </div>
+            <div class="col-12 col-lg-6">
+              <p>Sort playlist according to the release year for the discs:</p>
+              <button class="btn" @click="sortPerYear()">Sort</button>
+            </div>
           </div>
           <div class="row">
-            <div id="cards-container" v-if="discs_list.length === discs_quantity">
+            <div id="cards-container" v-if="discs_list.length >= discs_quantity">
               <div class="music-disc" v-for="(disc, index) in discs_list" v-if="disc.genre === selected_genre || selected_genre === 'all'">
                 <img class="disc-poster" :src="disc.poster" :alt="disc.title">
                 <h3>{{disc.title}}</h3>
