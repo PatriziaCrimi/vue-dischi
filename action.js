@@ -19,6 +19,8 @@ let app = new Vue({
     discs_quantity: 10,
     genre_list : [],
     selected_genre : 'all',
+    sort_year: '',
+    index_active_disc: '',
   },  // Closing data
   mounted: function() {
     // AJAX call
@@ -40,10 +42,20 @@ let app = new Vue({
   },  // Closing mounted
   methods: {
     sortPerYear() {
-      this.discs_list.sort((a, b) => {
-        return a.year - b.year;
-      });
-      console.log(this.discs_list);
+      // If "ascending" is selected, it is sort by ascending order
+      if (this.sort_year === 'ascending') {
+        this.discs_list.sort((a, b) => {
+          return a.year - b.year;
+        });
+      // If "descending" is selected, it is sort by descending order
+      } else if (this.sort_year === 'descending') {
+        this.discs_list.sort((a, b) => {
+          return b.year - a.year;
+        });
+      }
     },
+    onHover(index_disc) {
+      this.index_active_disc = index_disc;
+    }
   },  // Closing methods
 });

@@ -8,30 +8,48 @@
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
+  color: #fff;
 }
 
 h1 {
   text-transform: uppercase;
   font-weight: 900;
   letter-spacing: 1.5px;
-  padding: 60px 0;
+  padding: 50px 0;
   font-size: 32px;
+  color: #1db954;
+  filter: brightness(1.5);
+  text-shadow: 1px 1px #b3b3b3;
 }
 
 h2 {
   font-size: 20px;
 }
 
-p {
+h3 {
   font-size: 18px;
+}
+
+h4 {
+  color: #b3b3b3;
+  padding: 5px 0;
+}
+
+p {
+  font-size: 20px;
   font-weight: 600;
   padding-bottom: 20px;
+  color: #b3b3b3;
+}
+
+small {
+  color: #b3b3b3;
 }
 
 #page-wrapper {
   width: 100%;
-  height: 100vh;
-  background: grey;
+  height: 100%;
+  background-color: black;
 }
 
 .container {
@@ -69,6 +87,7 @@ h1::after {
   font-family: "Font Awesome 5 Free";
   font-weight: 700;
   font-size: 35px;
+  text-shadow: none;
 }
 
 h2::before {
@@ -88,26 +107,23 @@ h2::after {
   font-size: 25px;
 }
 
-button.btn {
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-select.select-genre,
-button.btn {
+select#select-genre,
+select#sort-year {
   cursor: pointer;
-  width: 80px;
   height: 40px;
-  border: 2px solid black;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  padding: 0 10px;
   border-radius: 5px;
-  opacity: 0.7;
-  transition: opacity 0.25s;
+  border: 2px solid #fff;
+  background-color: #b3b3b3;
+  transition: filter 0.25s, border 0.25s;
 }
 
-select.select-genre:hover,
-button.btn:hover {
-  opacity: 1;
+select#select-genre:hover,
+select#sort-year:hover {
+  filter: brightness(1.2);
+  border: 2px solid #1db954;
 }
 
 #cards-container {
@@ -118,13 +134,20 @@ button.btn:hover {
 
 #cards-container > .music-disc {
   padding: 15px;
+  transition all 0.25s;
+}
+
+.music-disc.active:hover {
+  cursor: pointer;
+  color: #1db954;
+  filter: brightness(1.5);
 }
 
 .music-disc > img.disc-poster {
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .music-disc > h3 {
@@ -209,6 +232,10 @@ button.btn:hover {
   h1::after {
     margin-left: 55px;
   }
+
+  .music-disc > img.disc-poster {
+    margin-bottom: 20px;
+  }
 }
 
 /* Breakpoint Extra Large 1200px xl */
@@ -216,4 +243,22 @@ button.btn:hover {
   .container {
     max-width: 1140px;
   }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 22px;
+  }
+
+  select#select-genre,
+  select#sort-year {
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .music-disc > img.disc-poster {
+    height: 165px;
+    width: 165px;
 }

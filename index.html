@@ -22,19 +22,23 @@
           <div class="row row-md">
             <div class="col-12 col-lg-6">
               <p>Select the music genre:</p>
-              <select class="select-genre" v-model="selected_genre">
+              <select id="select-genre" v-model="selected_genre">
                 <option value="all">All</option>
                 <option v-for="(genre, index) in genre_list" :value="genre">{{genre}}</option>
               </select>
             </div>
             <div class="col-12 col-lg-6">
               <p>Sort playlist by release year:</p>
-              <button class="btn" @click="sortPerYear()">Sort</button>
+              <select id="sort-year" v-model="sort_year" @click="sortPerYear()">
+                <option disabled value="">Please select</option>
+                <option value="ascending">Ascending</option>
+                <option value="descending">Descending</option>
+              </select>
             </div>
           </div>
           <div class="row">
             <div id="cards-container" v-if="discs_list.length >= discs_quantity">
-              <div class="music-disc" v-for="(disc, index) in discs_list" v-if="disc.genre === selected_genre || selected_genre === 'all'">
+              <div class="music-disc" v-for="(disc, index) in discs_list" v-if="disc.genre === selected_genre || selected_genre === 'all'" @mouseover="onHover(index)" @mouseleave="index_active_disc = ''" :class="index === index_active_disc ? 'active' : ''">
                 <img class="disc-poster" :src="disc.poster" :alt="disc.title">
                 <h3>{{disc.title}}</h3>
                 <h4>{{disc.author}}</h4>
