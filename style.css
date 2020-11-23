@@ -1,0 +1,162 @@
+/* Common features */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  padding: 60px 0;
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+#page-wrapper {
+  width: 100%;
+  height: 100vh;
+  background: lightgrey;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  padding: 25px 0;
+}
+
+.loading {
+  cursor: wait;
+}
+
+/* Sections */
+
+h1::before {
+  content: '\f51f';
+  margin-right: 10px;
+}
+
+h1::after {
+  content: '\f8d9';
+  margin-left: 10px;
+}
+
+h1::before,
+h1::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  font-size: 35px;
+}
+
+h2::before {
+  content: '\f252';
+  margin-right: 25px;
+}
+
+h2::after {
+  content: '\f252';
+  margin-left: 25px;
+}
+
+h2::before,
+h2::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  font-size: 25px;
+}
+
+
+/* ------------------- MEDIA QUERY ------------------- */
+
+/* Breakpoint Small 576px sm */
+@media screen and (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+
+  h1 {
+    font-size: 45px;
+  }
+
+  h1::before,
+  h1::after {
+    font-size: 40px;
+  }
+
+  h1::before {
+    margin-right: 20px;
+  }
+
+  h1::after {
+    margin-left: 20px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  h2::before,
+  h2::after {
+    font-size: 30px;
+  }
+}
+
+/* Breakpoint Medium 768px md */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+
+  h1 {
+    font-size: 55px;
+  }
+
+  h1::before,
+  h1::after {
+    font-size: 50px;
+  }
+
+  h1::before {
+    margin-right: 45px;
+  }
+
+  h1::after {
+    margin-left: 45px;
+  }
+}
+
+/* Breakpoint Large 992px lg */
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+
+  h1::before {
+    margin-right: 55px;
+  }
+
+  h1::after {
+    margin-left: 55px;
+  }
+}
+
+/* Breakpoint Extra Large 1200px xl */
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
