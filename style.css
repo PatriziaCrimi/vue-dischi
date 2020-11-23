@@ -173,6 +173,11 @@ button.btn:hover {
     max-width: 720px;
   }
 
+  .row-md {
+    display: flex;
+    justify-content: space-around;
+  }
+
   h1 {
     font-size: 55px;
   }
@@ -195,11 +200,6 @@ button.btn:hover {
 @media screen and (min-width: 992px) {
   .container {
     max-width: 960px;
-  }
-
-  .row-lg {
-    display: flex;
-    justify-content: space-around;
   }
 
   h1::before {

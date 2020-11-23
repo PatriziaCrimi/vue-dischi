@@ -19,7 +19,7 @@
           <div class="row">
             <h1>{{title}}</h1>
           </div>
-          <div class="row row-lg">
+          <div class="row row-md">
             <div class="col-12 col-lg-6">
               <p>Select the music genre:</p>
               <select class="select-genre" v-model="selected_genre">
@@ -28,7 +28,7 @@
               </select>
             </div>
             <div class="col-12 col-lg-6">
-              <p>Sort playlist according to the release year for the discs:</p>
+              <p>Sort playlist by release year:</p>
               <button class="btn" @click="sortPerYear()">Sort</button>
             </div>
           </div>
