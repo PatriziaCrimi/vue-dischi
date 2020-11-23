@@ -14,10 +14,23 @@
   </head>
   <body>
     <div id="root">
-      <div id="page-wrapper">
+      <div id="page-wrapper" :class="discs_list.length < discs_quantity ? 'loading' : ''">
         <div class="container">
           <div class="row">
             <h1>{{title}}</h1>
+          </div>
+          <div class="row">
+            <div id="cards-container" v-if="discs_list.length === discs_quantity">
+              <div class="music-disc" v-for="(disc, index) in discs_list">
+                <img class="disc-poster" :src="disc.poster" :alt="disc.title">
+                <h3>{{disc.title}}</h3>
+                <h4>{{disc.author}}</h4>
+                <small>{{disc.year}}</small>
+              </div>
+            </div>
+            <div v-else>
+              <h2>Loading playlist...</h2>
+            </div>
           </div>
         </div>  <!-- Closing container -->
       </div>  <!-- Closing page-wrapper -->
