@@ -78,6 +78,13 @@ h2::after {
   font-size: 25px;
 }
 
+select.select-genre {
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
 #cards-container {
   display: flex;
   flex-wrap: wrap;
