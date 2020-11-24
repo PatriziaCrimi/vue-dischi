@@ -14,9 +14,9 @@ BONUS 2: Ordinare i dischi per anno di uscita.
 let app = new Vue({
   el: '#root',
   data: {
+    loaded: false,
     title: 'Vue Music Discs',
     discs_list: [],
-    discs_quantity: 10,
     genre_list : [],
     selected_genre : 'all',
     sort_year: '',
@@ -37,6 +37,7 @@ let app = new Vue({
           this.genre_list.push(disc.genre);
         }
       });
+      this.loaded = true;
       console.log('All the genres listed are: ' , this.genre_list);
     });
   },  // Closing mounted
@@ -44,13 +45,13 @@ let app = new Vue({
     sortPerYear() {
       // If "ascending" is selected, it is sort by ascending order
       if (this.sort_year === 'ascending') {
-        this.discs_list.sort((a, b) => {
-          return a.year - b.year;
+        this.discs_list.sort((disc1, disc2) => {
+          return parseInt(disc1.year) - parseInt(disc2.year);
         });
       // If "descending" is selected, it is sort by descending order
       } else if (this.sort_year === 'descending') {
-        this.discs_list.sort((a, b) => {
-          return b.year - a.year;
+        this.discs_list.sort((disc1, disc2) => {
+          return parseInt(disc2.year) - parseInt(disc1.year);
         });
       }
     },

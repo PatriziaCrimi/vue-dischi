@@ -14,11 +14,12 @@
   </head>
   <body>
     <div id="root">
-      <div id="page-wrapper" :class="discs_list.length < discs_quantity ? 'loading' : ''">
+      <div id="page-wrapper" :class="loaded ? '' : 'loading'">
         <div class="container">
           <div class="row">
             <h1>{{title}}</h1>
           </div>
+          <!-- Select and sort section -->
           <div class="row row-md">
             <div class="col-12 col-lg-6">
               <p>Select the music genre:</p>
@@ -36,8 +37,9 @@
               </select>
             </div>
           </div>
+          <!-- Music discs cards section -->
           <div class="row">
-            <div id="cards-container" v-if="discs_list.length >= discs_quantity">
+            <div id="cards-container" v-if="loaded">
               <div class="music-disc" v-for="(disc, index) in discs_list" v-if="disc.genre === selected_genre || selected_genre === 'all'" @mouseover="onHover(index)" @mouseleave="index_active_disc = ''" :class="index === index_active_disc ? 'active' : ''">
                 <img class="disc-poster" :src="disc.poster" :alt="disc.title">
                 <h3>{{disc.title}}</h3>
