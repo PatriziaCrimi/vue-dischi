@@ -40,7 +40,7 @@
           <!-- Music discs cards section -->
           <div class="row">
             <div id="cards-container" v-if="loaded">
-              <div class="music-disc" v-for="(disc, index) in discs_list" v-if="disc.genre === selected_genre || selected_genre === 'all'" @mouseover="onHover(index)" @mouseleave="index_active_disc = ''" :class="index === index_active_disc ? 'active' : ''">
+              <div class="music-disc" v-for="(disc, index) in discs_list" v-if="disc.genre === selected_genre || selected_genre === 'all'" @mouseenter="onHover(index)" @mouseleave="index_active_disc = ''" :class="index === index_active_disc ? 'active' : ''">
                 <img class="disc-poster" :src="disc.poster" :alt="disc.title">
                 <h3>{{disc.title}}</h3>
                 <h4>{{disc.author}}</h4>
